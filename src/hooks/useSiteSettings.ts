@@ -26,6 +26,7 @@ export interface SiteSettings {
   seo_keywords_ar: string | null;
   seo_keywords_en: string | null;
   default_language: string | null;
+  whatsapp_number: string | null;
   created_at?: string;
   updated_at?: string;
 }
