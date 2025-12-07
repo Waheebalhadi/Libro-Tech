@@ -215,6 +215,10 @@
     animation: scale-in 0.3s ease-out;
   }
 
+  .animate-bounce-slow {
+    animation: bounce-slow 2s ease-in-out infinite;
+  }
+
   @keyframes float {
     0%, 100% { transform: translateY(0px); }
     50% { transform: translateY(-20px); }
@@ -261,5 +265,10 @@
       opacity: 1;
       transform: scale(1);
     }
+  }
+
+  @keyframes bounce-slow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
   }
 }

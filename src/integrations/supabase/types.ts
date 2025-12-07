@@ -406,6 +406,7 @@ export type Database = {
           social_twitter: string | null
           social_youtube: string | null
           updated_at: string | null
+          whatsapp_number: string | null
         }
         Insert: {
           company_address_ar?: string | null
@@ -433,6 +434,7 @@ export type Database = {
           social_twitter?: string | null
           social_youtube?: string | null
           updated_at?: string | null
+          whatsapp_number?: string | null
         }
         Update: {
           company_address_ar?: string | null
@@ -460,6 +462,7 @@ export type Database = {
           social_twitter?: string | null
           social_youtube?: string | null
           updated_at?: string | null
+          whatsapp_number?: string | null
         }
         Relationships: []
       }

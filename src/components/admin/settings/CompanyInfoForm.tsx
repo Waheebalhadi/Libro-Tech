@@ -1,4 +1,4 @@
-import { Building2, Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin, Youtube } from 'lucide-react';
+import { Building2, Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin, Youtube, MessageCircle } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -117,6 +117,19 @@ export default function CompanyInfoForm({ settings, onChange }: CompanyInfoFormP
                 value={settings?.company_phone || ''}
                 onChange={(e) => onChange({ company_phone: e.target.value })}
                 placeholder="+966 XX XXX XXXX"
+                dir="ltr"
+              />
+            </div>
+            <div className="space-y-2">
+              <Label className="flex items-center gap-2">
+                <MessageCircle className="h-4 w-4 text-[#25D366]" />
+                رقم الواتساب
+              </Label>
+              <Input
+                type="tel"
+                value={settings?.whatsapp_number || ''}
+                onChange={(e) => onChange({ whatsapp_number: e.target.value })}
+                placeholder="+966 5X XXX XXXX"
                 dir="ltr"
               />
             </div>
