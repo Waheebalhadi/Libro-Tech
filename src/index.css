@@ -2,7 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500;600;700&display=swap');
+/* Arabic Font - AQEEQSANSPRO Bold for Headings */
+@font-face {
+  font-family: 'AQEEQSANSPRO';
+  src: url('/AQEEQSANSPRO-Bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Arabic Font - Thin/Light for Body Text */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&family=Noto+Sans+Arabic:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* English Font - Professional and Clean */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=Work+Sans:wght@300;400;500;600;700;800&display=swap');
 
 @layer base {
   :root {
@@ -116,12 +129,105 @@
   }
 
   body {
-    @apply bg-background text-foreground font-readex;
+    @apply bg-background text-foreground;
   }
 
-  /* RTL Support */
+  /* Arabic Font - Default body text (thin and dark) */
   [dir="rtl"] {
-    font-family: 'Readex Pro', sans-serif;
+    font-family: 'Cairo', 'Noto Sans Arabic', sans-serif;
+    font-weight: 300;
+    color: #000000;
+  }
+  
+  /* Make all body text elements thinner and darker */
+  [dir="rtl"] p,
+  [dir="rtl"] span:not(h1 span):not(h2 span):not(h3 span):not(h4 span):not(h5 span):not(h6 span),
+  [dir="rtl"] div:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6),
+  [dir="rtl"] li,
+  [dir="rtl"] td,
+  [dir="rtl"] label,
+  [dir="rtl"] .text-sm,
+  [dir="rtl"] .text-xs,
+  [dir="rtl"] .text-base,
+  [dir="rtl"] .text-muted-foreground,
+  [dir="rtl"] .text-foreground:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
+    font-family: 'Cairo', 'Noto Sans Arabic', sans-serif;
+    font-weight: 300;
+  }
+  
+  /* Ensure text is dark/black */
+  [dir="rtl"] body {
+    color: #1a1a1a;
+  }
+  
+  [dir="rtl"] .text-foreground {
+    color: #000000;
+  }
+
+  /* Arabic Font - Headings (bold) */
+  [dir="rtl"] h1,
+  [dir="rtl"] h2,
+  [dir="rtl"] h3,
+  [dir="rtl"] h4,
+  [dir="rtl"] h5,
+  [dir="rtl"] h6 {
+    font-family: 'AQEEQSANSPRO', sans-serif;
+    font-weight: bold;
+  }
+
+  /* Arabic Font - Bold text */
+  [dir="rtl"] .font-bold,
+  [dir="rtl"] strong,
+  [dir="rtl"] b {
+    font-family: 'AQEEQSANSPRO', sans-serif;
+    font-weight: bold;
+  }
+
+  /* Arabic Font - Medium/Semibold */
+  [dir="rtl"] .font-medium,
+  [dir="rtl"] .font-semibold {
+    font-family: 'Cairo', 'Noto Sans Arabic', sans-serif;
+    font-weight: 400;
+  }
+
+  /* English Font - Professional and Clean */
+  [dir="ltr"] {
+    font-family: 'Inter', 'Poppins', 'Work Sans', sans-serif;
+    font-weight: 400;
+    color: #1a1a1a;
+  }
+  
+  /* English Font - Thin for body text */
+  [dir="ltr"] p,
+  [dir="ltr"] span:not(h1 span):not(h2 span):not(h3 span):not(h4 span):not(h5 span):not(h6 span),
+  [dir="ltr"] div:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6),
+  [dir="ltr"] li,
+  [dir="ltr"] td,
+  [dir="ltr"] label,
+  [dir="ltr"] .text-sm,
+  [dir="ltr"] .text-xs,
+  [dir="ltr"] .text-base {
+    font-family: 'Inter', 'Poppins', sans-serif;
+    font-weight: 400;
+  }
+  
+  /* English Font - Bold for headings */
+  [dir="ltr"] h1,
+  [dir="ltr"] h2,
+  [dir="ltr"] h3,
+  [dir="ltr"] h4,
+  [dir="ltr"] h5,
+  [dir="ltr"] h6 {
+    font-family: 'Inter', 'Poppins', sans-serif;
+    font-weight: 600;
+  }
+  
+  /* English Font - Bold text */
+  [dir="ltr"] .font-bold,
+  [dir="ltr"] strong,
+  [dir="ltr"] b {
+    font-family: 'Inter', 'Poppins', sans-serif;
+    font-weight: 700;
   }
 }
 

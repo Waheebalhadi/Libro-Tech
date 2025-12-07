@@ -4,8 +4,11 @@ import MessageList from '@/components/admin/messages/MessageList';
 import MessageDetails from '@/components/admin/messages/MessageDetails';
 import FilterPanel from '@/components/admin/messages/FilterPanel';
 import { ContactMessage, useContactMessages, useDeleteMessage } from '@/hooks/useContactMessages';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { cn } from '@/lib/utils';
 
 export default function AdminMessages() {
+  const { t, isRTL } = useLanguage();
   const [selectedMessage, setSelectedMessage] = useState<ContactMessage | null>(null);
   const [filters, setFilters] = useState({
     status: 'all',
@@ -40,17 +43,17 @@ export default function AdminMessages() {
   }
 
   return (
-    <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <div>
-          <div className="flex items-center gap-3">
-            <h1 className="text-2xl font-bold">رسائل التواصل</h1>
+    <div className={cn("space-y-6", isRTL ? "text-right" : "text-left")}>
+      <div className={cn("flex items-center justify-between", isRTL ? "flex-row-reverse" : "")}>
+        <div className={cn(isRTL ? "text-right" : "text-left")}>
+          <div className={cn("flex items-center gap-3", isRTL ? "flex-row-reverse" : "")}>
+            <h1 className="text-2xl font-bold">{t('admin.messages.title')}</h1>
             {newMessagesCount > 0 && (
-              <Badge variant="destructive">{newMessagesCount} جديدة</Badge>
+              <Badge variant="destructive">{newMessagesCount} {t('admin.messages.new')}</Badge>
             )}
           </div>
           <p className="text-muted-foreground">
-            إدارة الرسائل الواردة من نموذج الاتصال
+            {t('admin.messages.desc')}
           </p>
         </div>
       </div>

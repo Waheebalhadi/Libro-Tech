@@ -79,7 +79,25 @@ export default function HeroSection() {
   // Get title from database or use defaults
   const title = isRTL ? homepageData?.title_ar || 'Libro Tech: شريكك للتحول الإداري والتقني الشامل من A to Z' : homepageData?.title_en || 'Libro Tech: Your Partner for Complete Administrative & Technical Transformation from A to Z';
   const subtitle = isRTL ? homepageData?.subtitle_ar || 'منصة متكاملة تصمم، تدير، وتسوّق أعمالك إلكترونياً، لتحويل مشروعك من الإدارة التقليدية إلى منظومة عمل رقمية احترافية.' : homepageData?.subtitle_en || 'An integrated platform that designs, manages, and markets your business electronically, transforming your project from traditional management to a professional digital work system.';
-  return <section className="relative min-h-screen flex items-center overflow-hidden bg-primary" dir={isRTL ? 'rtl' : 'ltr'}>
+  
+  return <section 
+      className="relative min-h-screen flex items-center overflow-hidden bg-primary" 
+      dir={isRTL ? 'rtl' : 'ltr'}
+      style={{
+        backgroundImage: homepageData?.hero_image_url 
+          ? `url(${homepageData.hero_image_url})`
+          : undefined,
+        backgroundSize: homepageData?.hero_image_url ? 'cover' : undefined,
+        backgroundPosition: homepageData?.hero_image_url ? 'center' : undefined,
+        backgroundRepeat: homepageData?.hero_image_url ? 'no-repeat' : undefined,
+        backgroundAttachment: homepageData?.hero_image_url ? 'fixed' : undefined,
+      }}
+    >
+      {/* Background Overlay for image - ensures text readability */}
+      {homepageData?.hero_image_url ? (
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/90 via-primary/70 to-primary/90 z-0" />
+      ) : null}
+      
       {/* Decorative Elements */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <div className={`absolute top-20 ${isRTL ? 'right-20' : 'left-20'} w-[300px] md:w-[500px] h-[300px] md:h-[500px] rounded-full border-[20px] md:border-[40px] border-primary-foreground/10`} />

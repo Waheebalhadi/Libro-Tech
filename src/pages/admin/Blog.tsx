@@ -5,6 +5,8 @@ import { Plus, FileText, FolderOpen } from 'lucide-react';
 import BlogList from '@/components/admin/blog/BlogList';
 import BlogForm from '@/components/admin/blog/BlogForm';
 import CategoryManager from '@/components/admin/blog/CategoryManager';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { cn } from '@/lib/utils';
 import {
   BlogPost,
   useBlogPosts,
@@ -18,6 +20,7 @@ export default function AdminBlog() {
   const createPost = useCreateBlogPost();
   const updatePost = useUpdateBlogPost();
   const deletePost = useDeleteBlogPost();
+  const { t, isRTL } = useLanguage();
 
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [editingPost, setEditingPost] = useState<BlogPost | null>(null);
@@ -53,16 +56,16 @@ export default function AdminBlog() {
   };
 
   return (
-    <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-2xl font-bold">إدارة المدونة</h1>
-          <p className="text-muted-foreground">إضافة وتحرير المقالات والتصنيفات</p>
+    <div className={cn("space-y-6", isRTL ? "text-right" : "text-left")}>
+      <div className={cn("flex items-center justify-between", isRTL ? "flex-row-reverse" : "")}>
+        <div className={cn(isRTL ? "text-right" : "text-left")}>
+          <h1 className="text-2xl font-bold">{t('admin.blog.title')}</h1>
+          <p className="text-muted-foreground">{t('admin.blog.desc')}</p>
         </div>
         {!isFormOpen && (
-          <Button onClick={() => setIsFormOpen(true)}>
-            <Plus className="h-4 w-4 ml-2" />
-            مقال جديد
+          <Button onClick={() => setIsFormOpen(true)} className={cn("gap-2", isRTL ? "flex-row-reverse" : "")}>
+            <Plus className="h-4 w-4" />
+            {t('admin.blog.add')}
           </Button>
         )}
       </div>

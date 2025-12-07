@@ -6,6 +6,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import HeroEditor from '@/components/admin/homepage/HeroEditor';
 import FeatureListEditor from '@/components/admin/homepage/FeatureListEditor';
 import PreviewHome from '@/components/admin/homepage/PreviewHome';
+import { cn } from '@/lib/utils';
 
 export default function AdminHomepage() {
   const { data, isLoading, isSaving, updateHomepage, uploadImage, refetch } = useHomepage();
@@ -52,18 +53,20 @@ export default function AdminHomepage() {
     );
   }
 
+  const { isRTL } = useLanguage();
+  
   return (
-    <div className="space-y-4 sm:space-y-6">
+    <div className={cn("space-y-4 sm:space-y-6", isRTL ? "text-right" : "text-left")}>
       {/* Page Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-        <div>
+      <div className={cn("flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4", isRTL ? "sm:flex-row-reverse" : "")}>
+        <div className={cn(isRTL ? "text-right" : "text-left")}>
           <h1 className="text-xl sm:text-2xl font-bold text-foreground">{t('admin.homepage.title')}</h1>
           <p className="text-muted-foreground text-sm sm:text-base mt-1">
             {t('admin.homepage.desc')}
           </p>
         </div>
         
-        <div className="flex items-center gap-2 sm:gap-3">
+        <div className={cn("flex items-center gap-2 sm:gap-3", isRTL ? "flex-row-reverse" : "")}>
           <Button
             variant="outline"
             onClick={refetch}

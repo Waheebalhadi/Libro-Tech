@@ -5,6 +5,7 @@ import { useServices, ServiceData } from '@/hooks/useServices';
 import { useLanguage } from '@/contexts/LanguageContext';
 import ServiceList from '@/components/admin/services/ServiceList';
 import ServiceForm from '@/components/admin/services/ServiceForm';
+import { cn } from '@/lib/utils';
 import {
   AlertDialog,
   AlertDialogAction,
@@ -54,15 +55,17 @@ export default function AdminServices() {
     setDeleteId(null);
   };
 
+  const { isRTL } = useLanguage();
+  
   return (
-    <div className="space-y-4 sm:space-y-6">
+    <div className={cn("space-y-4 sm:space-y-6", isRTL ? "text-right" : "text-left")}>
       {/* Page Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-        <div className="flex items-center gap-3">
-          <div className="h-10 w-10 sm:h-12 sm:w-12 bg-primary/10 rounded-xl flex items-center justify-center">
+      <div className={cn("flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4", isRTL ? "sm:flex-row-reverse" : "")}>
+        <div className={cn("flex items-center gap-3", isRTL ? "flex-row-reverse" : "")}>
+          <div className="h-10 w-10 sm:h-12 sm:w-12 bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl flex items-center justify-center shadow-sm">
             <Briefcase className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
           </div>
-          <div>
+          <div className={cn(isRTL ? "text-right" : "text-left")}>
             <h1 className="text-xl sm:text-2xl font-bold text-foreground">{t('admin.services.title')}</h1>
             <p className="text-muted-foreground text-sm sm:text-base">
               {services.length} {language === 'ar' ? 'خدمة' : 'services'}
@@ -70,7 +73,7 @@ export default function AdminServices() {
           </div>
         </div>
         
-        <div className="flex items-center gap-2 sm:gap-3">
+        <div className={cn("flex items-center gap-2 sm:gap-3", isRTL ? "flex-row-reverse" : "")}>
           <Button variant="outline" onClick={refetch} disabled={isLoading} size="sm">
             <RefreshCw className="h-4 w-4" />
           </Button>

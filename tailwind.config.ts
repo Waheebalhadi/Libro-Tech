@@ -14,8 +14,10 @@ export default {
     },
     extend: {
       fontFamily: {
-        readex: ['Readex Pro', 'sans-serif'],
-        sans: ['Readex Pro', 'sans-serif'],
+        sans: ['Inter', 'Poppins', 'Work Sans', 'sans-serif'], // Default for English
+        arabic: ['Cairo', 'Noto Sans Arabic', 'sans-serif'], // For Arabic body text (thin)
+        arabicBold: ['AQEEQSANSPRO', 'sans-serif'], // For Arabic headings (bold)
+        english: ['Inter', 'Poppins', 'Work Sans', 'sans-serif'], // For English
       },
       colors: {
         border: "hsl(var(--border))",
