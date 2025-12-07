@@ -92,19 +92,7 @@ export default function HeroSection() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20 pt-28 sm:pt-32 pb-8">
         {/* Top Banner */}
         <div className={`flex ${isRTL ? 'justify-start' : 'justify-end'} mb-6 sm:mb-8`}>
-          <div className="inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-primary-foreground/10 backdrop-blur-sm">
-            <div className={`flex ${isRTL ? 'space-x-reverse' : ''} -space-x-2`}>
-              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-blue-400 border-2 border-primary-foreground flex items-center justify-center text-primary-foreground text-xs font-bold">أ</div>
-              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-green-400 border-2 border-primary-foreground flex items-center justify-center text-primary-foreground text-xs font-bold">م</div>
-              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-primary-glow border-2 border-primary-foreground flex items-center justify-center text-primary-foreground text-xs font-bold">س</div>
-            </div>
-            <span className="text-primary-foreground text-xs sm:text-sm">
-              {isRTL ? 'تبحث عن النجاح وتنظيم أعمالك بكفاءة؟' : 'Looking for success and efficiency?'}
-            </span>
-            <span className="px-2 sm:px-3 py-1 rounded-full bg-primary-foreground text-primary text-xs sm:text-sm font-bold">
-              {isRTL ? 'خلّها علينا' : 'Leave it to us'}
-            </span>
-          </div>
+          
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
