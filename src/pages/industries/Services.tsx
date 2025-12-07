@@ -50,7 +50,7 @@ export default function Services() {
                 <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
                   {isRTL ? 'حلول لمكاتب الخدمات' : 'Solutions for Service Offices'}
                 </h1>
-                <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+                <p className="text-lg text-muted-foreground mb-8 leading-relaxed text-center">
                   {isRTL ? 'نظام متكامل لإدارة مكتب الخدمات الخاص بك، من جدولة المواعيد إلى إدارة العملاء والفوترة، مع تقارير تفصيلية لتحسين الأداء.' : 'A complete system to manage your service office, from scheduling appointments to client management and invoicing, with detailed reports to improve performance.'}
                 </p>
                 <div className={`flex gap-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
