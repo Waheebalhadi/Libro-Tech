@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Globe, Sparkles } from 'lucide-react';
+import { Menu, X, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { supabase } from '@/integrations/supabase/client';
@@ -126,7 +126,7 @@ export default function Navbar() {
                   </button>
                   <Link to="/contact">
                     <Button className="w-full bg-gradient-to-r from-primary to-primary/80 text-primary-foreground py-6 rounded-xl shadow-lg">
-                      <Sparkles className={`h-4 w-4 ${isRTL ? 'ml-2' : 'mr-2'}`} />
+                      
                       {isRTL ? 'تواصل معنا' : 'Contact Us'}
                     </Button>
                   </Link>
