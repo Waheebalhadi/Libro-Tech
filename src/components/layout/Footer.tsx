@@ -236,17 +236,7 @@ export default function Footer() {
               © {new Date().getFullYear()} {companyName}. {isRTL ? 'جميع الحقوق محفوظة' : 'All rights reserved'}
               
             </p>
-            <div className="flex items-center gap-6 text-sm text-background/50">
-              <Link to="/privacy" className="hover:text-primary transition-colors">
-                {isRTL ? 'سياسة الخصوصية' : 'Privacy Policy'}
-              </Link>
-              <Link to="/terms" className="hover:text-primary transition-colors">
-                {isRTL ? 'الشروط والأحكام' : 'Terms of Service'}
-              </Link>
-              <button onClick={scrollToTop} className="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center hover:bg-primary hover:scale-110 transition-all duration-300" aria-label="Scroll to top">
-                <ArrowUp className="h-5 w-5" />
-              </button>
-            </div>
+            
           </div>
         </div>
       </div>
